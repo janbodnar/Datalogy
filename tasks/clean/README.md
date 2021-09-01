@@ -41,7 +41,9 @@ open System.IO
 open System
 open System.Text.RegularExpressions
 
-let data = File.ReadAllText "unclean.txt"
+let args = fsi.CommandLineArgs.[1..] 
+
+let data = File.ReadAllText args.[0]
 
 let replaced = Regex.Replace(data, "[\",]", "")
 
