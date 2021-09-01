@@ -3,19 +3,31 @@
 ## Counting words in small text
 
 - \# of words 
-- \# 'of'
 - \# of lines
+- \# 'of'
 - \# of words 'and', 'the', 'by'
-- \# of three letter words
+- \# of three-letter words
 - \# of unique words
 - \# of vowels and consonants
 - \# of punctuation marks 
 - \# of capitalized words
 - \# of words that start with either 'o', or 'b'
 - \# of words that start with either 'o', or 'b', case insensitive
-- \# of words that end with either 'e'
+- \# of words that end with 'e'
 
 ### Linux commands
 
-`$ wc -l` - # of lines  
+`$ wc -w thermopylae.txt` - # of words
+`$ wc -l thermopylae.txt` - # of lines  
 `$ tr ' ' '\n' < thermopylae.txt | grep of | wc -l` - # of  
+`$ cat thermopylae.txt | tr -s [:space:] '\n' | grep -wc -e '...'` - # of three-letter words  
+`$ cat thermopylae.txt | tr -d [:punct:] | tr -s [:space:] '\n' | wc -l` - # of unique words  
+`$ cat thermopylae.txt | tr -dc [AEIUOaeiou] | wc -c`  - # of vowels  
+`$ cat thermopylae.txt | tr -d [:punct:][:space:][AEIOUaeiou] | wc -c` - # of consonants  
+`$ cat thermopylae.txt | tr -dc '[:punct:]' | wc -c` - # of punctuation marks  
+`$ cat thermopylae.txt | tr -s [:space:] '\n' | grep -wc -e '[A-Z].*'` - # of capitalized words  
+`$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wc -e '[ob].*'` - # starting with o or b  
+`$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wic -e '[ob].*` - # starting with o or b, case insen  
+`$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wc -e '.*e'` - # of words ending in 'e'  
+
+
