@@ -11,6 +11,6 @@ into one column
 `:g/^$/d` - delete blank lines   
 
 2) VS Code 
-use Ctrl + H to remove chars; use regex option 
-`\s+` -> `\n`
-`\n\n` -> `\n`
+use Ctrl + H to remove chars; use regex option  
+`\s+` -> `\n`  
+`\n\n` -> `\n`  
