@@ -5,21 +5,21 @@
 Remove quotes, commas and spaces from the `unclean.txt` and organize the words  
 into one column  
   
-1) VIM  
+- VIM  
 `:%s/[",]//g` - remove " and , chars  
 `:%s/\s\+/\r/g` - split words into column  
 `:g/^$/d` - delete blank lines   
 
-2) VS Code 
+- VS Code 
 use Ctrl + H to remove chars; use regex option  
 `\s+` -> `\n`  
 `\n\n` -> `\n`  
 
-3) Linux commands 
+- Linux commands 
 
 `tr -d '",' < unclean.txt | tr -s '[:space:]' '\n'`  - one liner with tr command  
 
-4) Perl solution 
+- Perl solution 
 
 ```
 #!/usr/bin/perl 
@@ -37,7 +37,7 @@ for (<>) {
 ```
 `$ ./clean_data.pl uncleant.txt`  
 
-5) F# solution  
+- F# solution  
 
 ```
 open System.IO
