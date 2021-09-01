@@ -17,6 +17,32 @@ old     tree
 from each FILE, separated by TABs, to standard output.  
 The `column` utility formats its input into multiple columns  
 
+- Perl solution 
+
+```
+#!/usr/bin/perl 
+
+use v5.30;
+use warnings;
+use IO::All;
+use List::MoreUtils qw(zip6);
+
+my $fname1 = shift or die 'need 2 params';
+my $fname2 = shift or die 'need 2 params';
+
+my @lines1 = io($fname1)->chomp->slurp; 
+my @lines2 = io($fname2)->chomp->slurp; 
+
+my @zipped = zip6 @lines1, @lines2;
+
+for my $e (@zipped) {
+
+    my $joined = join " ", @{ $e };
+    say $joined;
+    # "$joined\n" >> io('combined2.txt');
+}
+```
+
 - F# solutions
 
 ```
