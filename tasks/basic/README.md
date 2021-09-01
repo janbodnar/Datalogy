@@ -17,6 +17,14 @@ old     tree
 from each FILE, separated by TABs, to standard output.  
 The `column` utility formats its input into multiple columns  
 
+- Raku solution 
+
+```
+#!/usr/bin/raku
+
+.put for [Z] @*ARGS.map: *.IO.lines;
+```
+
 - Perl solution 
 
 ```
