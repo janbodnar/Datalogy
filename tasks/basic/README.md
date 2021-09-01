@@ -17,6 +17,11 @@ old     tree
 from each FILE, separated by TABs, to standard output.  
 The `column` utility formats its input into multiple columns  
 
+- AWK 
+
+`$ awk '{printf ("%s ", $0); getline < "adjectives.txt"; print $0 }' words.txt`
+
+
 - Raku solution 
 
 ```
