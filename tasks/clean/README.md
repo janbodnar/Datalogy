@@ -15,9 +15,10 @@ use Ctrl + H to remove chars; use regex option
 `\s+` -> `\n`  
 `\n\n` -> `\n`  
 
-- Linux commands 
+- Linux tr command
 
-`tr -d '",' < unclean.txt | tr -s '[:space:]' '\n'`  - one liner with tr command  
+`tr -d '",' < unclean.txt | tr -s '[:space:]' '\n'`  
+-d option deletes a set of characters; the -s (for squeeze) replaces multiple occurrences    
 
 - Perl solution 
 
