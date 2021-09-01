@@ -1,5 +1,7 @@
 # Basic tasks
 
+## Count words
+
 ## Join words from words.txt & adjectives.txt 
 into one file/output; join words from the same lines
 
