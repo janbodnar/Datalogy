@@ -1,4 +1,4 @@
-### Basic tasks
+# Basic tasks
 
 ## Join words from words.txt & adjectives.txt 
 into one file/output; join words from the same lines
