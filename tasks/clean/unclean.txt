@@ -1,0 +1,4 @@
+"čaj", "auto", "pot", "márny", "kľak", "chyba" ,"drevo", "cibuľa", "džíp" ,"džem", "šum" ,"pól", "čučoriedka" ,
+"banán", "čerešňa", "červený", "klam" ,"čierny", "tŕň" ,"pôst" ,"hôrny", "mat", "chobot", "cesnak", "kĺb",
+"mäta", "ďateľ", "troska", "sýkorka", "elektrón", "fuj" ,"zem", "guma", "hora", "genzír", "ihla", "pýr", "hrozno",
+"jazva", "džavot", "lom"
