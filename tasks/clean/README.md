@@ -17,8 +17,6 @@ use Ctrl + H to remove chars; use regex option
 
 3) Perl solution 
 
-`$ ./clean_data.pl uncleant.txt`  
-
 ```
 #!/usr/bin/perl 
 
@@ -33,8 +31,9 @@ for (<>) {
     print $_;
 }
 ```
+`$ ./clean_data.pl uncleant.txt`  
 
-3) F# solution  
+4) F# solution  
 
 ```
 open System.IO
@@ -53,3 +52,5 @@ Regex.Split(replaced, "\s+")
         if (not (String.IsNullOrWhiteSpace(e))) then
             Console.WriteLine(e))
 ```
+
+`dotnet fsi clean_words.fsx unclean.txt`
