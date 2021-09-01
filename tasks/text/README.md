@@ -2,9 +2,9 @@
 
 ## Counting words in small text
 
-- # of words 
-- # 'of'
-- # of lines
+- \# of words 
+- \# 'of'
+- \# of lines
 - # of words 'and', 'the', 'by'
 - # of three letter words
 - # of unique words
