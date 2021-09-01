@@ -21,7 +21,6 @@ The `column` utility formats its input into multiple columns
 
 ```
 open System.IO
-open System
 
 let args = fsi.CommandLineArgs.[1..] 
 
