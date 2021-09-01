@@ -15,7 +15,11 @@ use Ctrl + H to remove chars; use regex option
 `\s+` -> `\n`  
 `\n\n` -> `\n`  
 
-3) Perl solution 
+3) Linux commands 
+
+`tr -d '",' < unclean.txt | tr -s '[:space:]' '\n'`  - one liner with tr command  
+
+4) Perl solution 
 
 ```
 #!/usr/bin/perl 
@@ -33,7 +37,7 @@ for (<>) {
 ```
 `$ ./clean_data.pl uncleant.txt`  
 
-4) F# solution  
+5) F# solution  
 
 ```
 open System.IO
