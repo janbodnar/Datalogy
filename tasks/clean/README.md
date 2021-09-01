@@ -14,3 +14,21 @@ into one column
 use Ctrl + H to remove chars; use regex option  
 `\s+` -> `\n`  
 `\n\n` -> `\n`  
+
+3) F# solution  
+
+```
+open System.IO
+open System
+open System.Text.RegularExpressions
+
+let data = File.ReadAllText "unclean.txt"
+
+let replaced = Regex.Replace(data, "[\",]", "")
+
+Regex.Split(replaced, "\s+")
+|> Array.iter
+    (fun e ->
+        if (not (String.IsNullOrWhiteSpace(e))) then
+            Console.WriteLine(e))
+```
