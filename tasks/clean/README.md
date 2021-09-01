@@ -15,6 +15,25 @@ use Ctrl + H to remove chars; use regex option
 `\s+` -> `\n`  
 `\n\n` -> `\n`  
 
+3) Perl solution 
+
+`$ ./clean_data.pl uncleant.txt`  
+
+```
+#!/usr/bin/perl 
+
+use v5.30;
+use warnings;
+
+for (<>) {
+
+    $_ =~ s/[",]//g;
+    $_ =~ s/\s+/\n/g;
+
+    print $_;
+}
+```
+
 3) F# solution  
 
 ```
