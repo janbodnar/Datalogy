@@ -27,7 +27,7 @@
 `$ cat thermopylae.txt | tr -dc '[:punct:]' | wc -c` - # of punctuation marks  
 `$ cat thermopylae.txt | tr -s [:space:] '\n' | grep -wc -e '[A-Z].*'` - # of capitalized words  
 `$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wc -e '[ob].*'` - # starting with o or b  
-`$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wic -e '[ob].*` - # starting with o or b, case insen  
+`$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wic -e '[ob].*'` - # starting with o or b, case insen  
 `$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wc -e '.*e'` - # of words ending in 'e'  
 
 ### Perl programs
@@ -149,5 +149,39 @@ say "@{[scalar @matches]} three-letter words";
 
 Count three-letter words  
 
+```
+#!/usr/bin/perl 
+
+use v5.30;
+use warnings;
+use IO::All;
+
+my $fname = shift or die 'provide a filename';
+
+my $contents = io($fname)->all;
+$contents =~ s/[[:punct:]]//g;
+
+my @matches = $contents =~ /(\b[A-Z]\w*\b)/g;
+my $n = @matches;
+
+say "$n capitalized words";
+
+@matches = $contents =~ /(\b[ob]\w*\b)/g;
+$n = @matches;
+
+say "$n words starting in o or b";
+
+@matches = $contents =~ /(\b[ob]\w*\b)/gi;
+$n = @matches;
+
+say "$n words starting in o or b, ci";
+
+@matches = $contents =~ /(\b\w*e\b)/g;
+$n = @matches;
+
+say "$n words ending in e";
+```
+
+Counts capitalized words, words starting in o/b, o/b ci, and words ending in e.  
 
 
