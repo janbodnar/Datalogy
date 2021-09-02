@@ -88,3 +88,28 @@ say "There are $n unique words";
 ```
 
 Counts unique words, case insensitively
+
+```
+#!/usr/bin/perl 
+
+use v5.30;
+use warnings;
+use IO::All;
+
+my $fname = shift or die 'provide a filename';
+
+my $contents = io($fname)->all;
+
+# Perl transliteration operator does not support 
+# character classes
+my $n1 = $contents =~ y/,.?!-"'//; 
+say "$n1 punctuation marks";
+
+my $n2 = $contents =~ y/aeiouAEIOU//;
+say "$n2 vowels";
+
+my $n3 = $contents =~ y/bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ//;
+say "$n3 consonants";
+```
+
+Counts punctuation marks, vowels and consonants
