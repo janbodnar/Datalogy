@@ -113,3 +113,42 @@ say "$n3 consonants";
 ```
 
 Counts punctuation marks, vowels and consonants
+
+```
+#!/usr/bin/perl 
+
+use v5.30;
+use warnings;
+use IO::All;
+
+my $fname = shift or die 'provide a filename';
+
+my $contents = io($fname)->all;
+$contents =~ s/[[:punct:]]//g;
+
+my @matches = ();
+
+push (@matches, $&) while ($contents =~ /\b\w\w\w\b/g);
+
+say "@matches";
+say "@{[scalar @matches]} three-letter words"
+
+# my @words = split " ", $contents;
+# my $n++;
+
+# for my $word (@words) {
+
+#     if ($word =~ m/^...$/) {
+#         $n++;
+#     }
+# }
+
+# my $n1 = @words; 
+
+# say "$n three-letter words"
+```
+
+Count three-letter words  
+
+
+
