@@ -38,7 +38,6 @@
 use v5.30;
 use warnings;
 use IO::All;
-use Data::Dumper;
 
 my $fname = shift or die 'provide a filename';
 
@@ -62,3 +61,30 @@ say "There are $n words and $n_lines lines";
 ```
 
 Counts words and lines
+
+```
+#!/usr/bin/perl 
+
+use v5.30;
+use warnings;
+use IO::All;
+
+my $fname = shift or die 'provide a filename';
+
+my $contents = io($fname)->all;
+my %res;
+
+my $cleaned = $contents =~ s/[[:punct:]]//gr;
+my @words = split " ", $cleaned;
+
+for my $word (@words) {
+
+     ++$res{lc $word};
+}
+
+my $n = keys %res;
+
+say "There are $n unique words";
+```
+
+Counts unique words, case insensitively
