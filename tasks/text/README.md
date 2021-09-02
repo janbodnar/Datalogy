@@ -126,18 +126,17 @@ my $fname = shift or die 'provide a filename';
 my $contents = io($fname)->all;
 $contents =~ s/[[:punct:]]//g;
 
-my @matches = ();
+my @matches = $contents =~ /(\b\w{3}\b)/g;
+say "@{[scalar @matches]} three-letter words";
 
-push (@matches, $&) while ($contents =~ /\b\w\w\w\b/g);
+# alternative 1
+# push (@matches, $&) while ($contents =~ /\b\w\w\w\b/g);
 
-say "@matches";
-say "@{[scalar @matches]} three-letter words"
-
+# alternative 2
 # my @words = split " ", $contents;
-# my $n++;
+# my $n = 0;
 
 # for my $word (@words) {
-
 #     if ($word =~ m/^...$/) {
 #         $n++;
 #     }
