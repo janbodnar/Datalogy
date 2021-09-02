@@ -20,7 +20,7 @@
 `$ wc -w thermopylae.txt` - # of words  
 `$ wc -l thermopylae.txt` - # of lines  
 `$ tr ' ' '\n' < thermopylae.txt | grep of | wc -l` - # of  
-`$ cat thermopylae.txt | tr -s [:space:] '\n' | grep -wc -e '...'` - # of three-letter words  
+`$ cat thermopylae.txt | tr -d [:punct:] | tr -s [:space:] '\n' | grep -wc -e '...'` - # of three-letter words  
 `$ cat thermopylae.txt | tr -d [:punct:] | tr -s [:space:] '\n' | wc -l` - # of unique words  
 `$ cat thermopylae.txt | tr -dc [AEIUOaeiou] | wc -c`  - # of vowels  
 `$ cat thermopylae.txt | tr -d [:punct:][:space:][AEIOUaeiou] | wc -c` - # of consonants  
@@ -30,4 +30,35 @@
 `$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wic -e '[ob].*` - # starting with o or b, case insen  
 `$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wc -e '.*e'` - # of words ending in 'e'  
 
+### Perl programs
 
+```
+#!/usr/bin/perl 
+
+use v5.30;
+use warnings;
+use IO::All;
+use Data::Dumper;
+
+my $fname = shift or die 'provide a filename';
+
+my @lines = io($fname)->chomp->slurp;
+@lines = grep { $_ ne '' } @lines; # remove empty elements
+
+my $n = 0;
+
+for my $line (@lines) {
+
+    $line =~ s/[[:punct:]]//g;
+
+    my @words = split " ", $line;
+    $n += @words;
+}
+
+
+my $n_lines = @lines;
+
+say "There are $n words and $n_lines lines";
+```
+
+Counts words and lines
