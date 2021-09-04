@@ -111,6 +111,54 @@ vowels: 72, consonants: 108
 
 Couns # of vowels and consonants  
 
+```
+BEGIN {
+    # IGNORECASE=1
+    cap = 0
+    ob_start = 0
+    obi_start = 0
+    e_end = 0
+}
+
+{
+    for (i=1; i<=NF; i++) {
+
+        gsub(/[,;!()*:?.]*/, "")
+
+        field = $i
+
+        if (field ~ /^[A-Z]/) {
+
+            cap++
+        }
+
+        if (field ~ /^[o,b]/) {
+
+            ob_start++
+        }        
+
+        if (tolower(field) ~ /^[o,b]/) {
+
+            obi_start++
+        }
+
+        if (field ~ /e$/) {
+
+            e_end++
+        }
+    }
+}
+
+END {  
+
+    print "Capitalized: ", cap 
+    print "Starting in o or b: ", ob_start 
+    print "Starting in o or b, ci: ", obi_start
+    print "Ending in e: ", e_end 
+}
+```
+Counts capitalized words, words starting in o/b, o/b ci, and words ending in e.   
+
 ### Perl programs
 
 ```
