@@ -21,7 +21,7 @@
 `$ wc -l thermopylae.txt` - # of lines  
 `$ tr ' ' '\n' < thermopylae.txt | grep of | wc -l` - # of  
 `$ cat thermopylae.txt | tr -d [:punct:] | tr -s [:space:] '\n' | grep -wc -e '...'` - # of three-letter words  
-`$ cat thermopylae.txt | tr -d [:punct:] | tr -s [:space:] '\n' | wc -l` - # of unique words  
+`$ cat thermopylae.txt | tr -d [:punct:] | tr -s [:space:] '\n' | sort | uniq | wc -l` - # of unique words  
 `$ cat thermopylae.txt | tr -dc [AEIUOaeiou] | wc -c`  - # of vowels  
 `$ cat thermopylae.txt | tr -d [:punct:][:space:][AEIOUaeiou] | wc -c` - # of consonants  
 `$ cat thermopylae.txt | tr -dc '[:punct:]' | wc -c` - # of punctuation marks  
@@ -93,6 +93,23 @@ END { print n }
 
 Counts the # of three-letter words; \y is for word boundary  
 
+```
+{
+    vows += gsub(/[aeiou]/,"")
+    cons += gsub(/[bcdfghjklmnpqrtsvwxyz]/,"")
+}
+
+END {
+    printf "vowels: %d, consonants: %d\n", vows, cons
+}
+```
+
+```
+$ awk -v IGNORECASE=1 -f vows_cons.awk thermopylae.txt 
+vowels: 72, consonants: 108
+```
+
+Couns # of vowels and consonants  
 
 ### Perl programs
 
