@@ -30,6 +30,29 @@
 `$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wic -e '[ob].*'` - # starting with o or b, case insen  
 `$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wc -e '.*e'` - # of words ending in 'e'  
 
+### AWK 
+
+```
+{
+    words += NF
+
+    if (NF > 0) {
+        lines++
+    }
+}
+
+END { print lines, words }
+
+```
+
+Counts lines and words; it counts non-blank lines  
+
+```
+$ awk -f words_lines.awk thermopylae.txt 
+4 38
+```
+
+
 ### Perl programs
 
 ```
