@@ -59,6 +59,7 @@ Counts lines and words; it counts non-blank lines
         field = $i
 
         if (match(field, "^" word "$")) {
+        #if (match(field, "\\y"word"\\y")) {
 
             n++
         }
