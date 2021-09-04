@@ -15,6 +15,10 @@
 - \# of words that start with either 'o', or 'b', case insensitive
 - \# of words that end with 'e'
 
+
+Solutions in Linux commands, AWK, and Perl  
+
+
 ### Linux commands
 
 `$ wc -w thermopylae.txt` - # of words  
