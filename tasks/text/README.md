@@ -45,13 +45,12 @@ END { print lines, words }
 
 ```
 
-Counts lines and words; it counts non-blank lines  
-
 ```
 $ awk -f words_lines.awk thermopylae.txt 
 4 38
 ```
 
+Counts lines and words; it counts non-blank lines  
 
 ```
 {
@@ -74,6 +73,24 @@ $ awk -v word=of -f count_word.awk thermopylae.txt
 6
 ```
 Count # of  
+
+```
+{
+    for (i=1; i<=NF; i++) {
+
+        field = $i
+
+        if (match(field, /\y...\y/)) {
+
+            n++
+        }
+    }
+}
+
+END { print n }
+```
+
+Counts the # of three-letter words; \y is for word boundary  
 
 
 ### Perl programs
