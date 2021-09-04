@@ -53,6 +53,29 @@ $ awk -f words_lines.awk thermopylae.txt
 ```
 
 
+```
+{
+    for (i=1; i<=NF; i++) {
+
+        field = $i
+
+        if (match(field, "^" word "$")) {
+
+            n++
+        }
+    }
+}
+
+END { print n }
+```
+
+```
+$ awk -v word=of -f count_word.awk thermopylae.txt 
+6
+```
+Count # of  
+
+
 ### Perl programs
 
 ```
