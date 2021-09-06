@@ -78,3 +78,30 @@ let n = (data, @"\b\w{3}\b") |> Regex.Matches |> Seq.length
 
 printfn $"# of three-letter words {n}"
 ```
+
+## Count vowels & consonants  
+
+```
+open System.IO
+open System.Text.RegularExpressions
+
+let args = fsi.CommandLineArgs.[1..]
+
+let fileName = args.[0]
+
+let data = File.ReadAllText(fileName)
+
+let n1 =
+    (data, "(?i)[aeiou]")
+    |> Regex.Matches
+    |> Seq.length
+
+printfn $"# of vowels: {n1}"
+
+let n2 =
+    (data, "(?i)[bcdfghjklmnpqrstvwxyz]")
+    |> Regex.Matches
+    |> Seq.length
+
+printfn $"# of consonants: {n2}"
+```
