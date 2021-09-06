@@ -87,6 +87,26 @@ with open(filename, 'r') as f:
     print(f'# of three-letter words: {n}')
 ```
 
+## Count punctuation marks
+
+```
+#!/usr/bin/python
+
+import sys
+import re
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as f:
+    
+    data = f.read()
+
+    found = re.findall(r"[,.?!\-\"']", data)
+    n = len(found)
+    
+    print(f'# of punctuation marks: {n}')
+```
+
 ## Count capitalized words
 
 ```
