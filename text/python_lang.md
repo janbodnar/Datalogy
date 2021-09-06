@@ -107,3 +107,22 @@ with open(filename, 'r') as f:
     print(f'# of capitalized words: {n}')
 ```
 
+## Count words ending in e
+
+```
+#!/usr/bin/python
+
+import sys
+import re
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as f:
+    
+    data = f.read()
+
+    found = re.findall(r"\b\w*e\b", data)
+    n = len(found)
+    
+    print(f'# of words ending in e: {n}')
+```
