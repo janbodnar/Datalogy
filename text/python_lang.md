@@ -86,3 +86,24 @@ with open(filename, 'r') as f:
     
     print(f'# of three-letter words: {n}')
 ```
+
+## Count capitalized words
+
+```
+#!/usr/bin/python
+
+import sys
+import re
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as f:
+    
+    data = f.read()
+
+    found = re.findall(r"[A-Z]\w*", data)
+    n = len(found)
+    
+    print(f'# of capitalized words: {n}')
+```
+
