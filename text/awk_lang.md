@@ -1,6 +1,6 @@
 # AWK 
 
-
+## Count lines and words
 
 ```
 {
@@ -21,6 +21,8 @@ $ awk -f words_lines.awk thermopylae.txt
 ```
 
 Counts lines and words; it counts non-blank lines  
+
+## Count word occurrences  
 
 ```
 {
@@ -45,6 +47,8 @@ $ awk -v word=of -f count_word.awk thermopylae.txt
 ```
 Count # of  
 
+## Count three-letter words
+
 ```
 {
     for (i=1; i<=NF; i++) {
@@ -63,7 +67,13 @@ END { print n }
 
 Counts the # of three-letter words; \y is for word boundary  
 
+## Couns vowels and consonants  
+
 ```
+BEGIN { 
+    IGNORECASE=1 
+}
+
 {
     vows += gsub(/[aeiou]/,"")
     cons += gsub(/[bcdfghjklmnpqrtsvwxyz]/,"")
@@ -72,14 +82,18 @@ Counts the # of three-letter words; \y is for word boundary
 END {
     printf "vowels: %d, consonants: %d\n", vows, cons
 }
+
 ```
 
 ```
-$ awk -v IGNORECASE=1 -f vows_cons.awk thermopylae.txt 
+$ awk -f vows_cons.awk thermopylae.txt 
 vowels: 72, consonants: 108
 ```
 
-Couns # of vowels and consonants  
+alternatively, `IGNORECASE` can be set with `awk -v IGNORECASE=1`  
+
+
+## Count capitalize, starting & ending
 
 ```
 BEGIN {
