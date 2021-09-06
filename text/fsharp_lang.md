@@ -26,3 +26,22 @@ printfn "# of words: %A" n1
 let n2 = words |> Array.countBy id |> Array.length
 printfn "# of unique words: %A" n2
 ```
+
+## Count lines
+
+```
+open System
+open System.IO
+
+let args = fsi.CommandLineArgs.[1..]
+let fileName = args.[0]
+
+let lines = File.ReadAllLines(fileName)
+
+let n =
+    lines
+    |> Array.filter (String.IsNullOrWhiteSpace >> not)
+    |> Array.length
+
+printfn "# of lines: %d" n
+```
