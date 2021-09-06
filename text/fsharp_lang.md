@@ -45,3 +45,20 @@ let n =
 
 printfn "# of lines: %d" n
 ```
+
+## Count word occurrence 
+
+```
+open System.IO
+open System.Text.RegularExpressions
+
+let args = fsi.CommandLineArgs.[1..]
+
+let fileName = args.[0]
+let word = args.[1]
+
+let data = File.ReadAllText(fileName)
+let n = (data, @$"\b{word}\b") |> Regex.Matches |> Seq.length
+
+printfn $"# of word {word} {n}"
+```
