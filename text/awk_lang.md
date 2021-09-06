@@ -93,7 +93,7 @@ vowels: 72, consonants: 108
 alternatively, `IGNORECASE` can be set with `awk -v IGNORECASE=1`  
 
 
-## Count capitalize, starting & ending
+## Count capitalized, starting & ending
 
 ```
 BEGIN {
