@@ -1,0 +1,28 @@
+# F# 
+
+## Count words & unique words
+
+```
+open System
+open System.IO
+open System.Text.RegularExpressions
+
+let args = fsi.CommandLineArgs.[1..]
+
+let fileName = args.[0]
+
+let data = File.ReadAllText(fileName)
+
+let cleaned = Regex.Replace(data, "\p{P}*", "")
+
+let words =
+    (cleaned, "\s+")
+    |> Regex.Split
+    |> Array.filter (fun e -> not (String.IsNullOrWhiteSpace(e)))
+
+let n1 = words |> Array.length
+printfn "# of words: %A" n1
+
+let n2 = words |> Array.countBy id |> Array.length
+printfn "# of unique words: %A" n2
+```
