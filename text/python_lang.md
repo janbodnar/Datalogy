@@ -26,3 +26,22 @@ with open(filename, 'r') as f:
     print(f'{n1} words')
     print(f'{n2} unique words')
 ```
+
+## Count lines
+
+```
+#!/usr/bin/python
+
+import sys
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as f:
+    
+    lines = f.readlines()
+    cleaned = [e for e in lines if e.strip()] # remove blank lines
+
+    n = len(cleaned)
+
+    print(f'# of lines: {n}')
+````
