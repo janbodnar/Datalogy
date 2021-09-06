@@ -105,3 +105,24 @@ let n2 =
 
 printfn $"# of consonants: {n2}"
 ```
+
+## Count punctuation marks  
+
+```
+open System.IO
+open System.Text.RegularExpressions
+
+let args = fsi.CommandLineArgs.[1..]
+
+let fileName = args.[0]
+
+let data = File.ReadAllText(fileName)
+
+let n =
+    (data, "\p{P}")
+    |> Regex.Matches
+    |> Seq.length
+
+printfn $"# of punctuation marks: {n}"
+```
+
