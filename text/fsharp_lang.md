@@ -126,3 +126,22 @@ let n =
 printfn $"# of punctuation marks: {n}"
 ```
 
+## Count capitalized words
+
+```
+open System.IO
+open System.Text.RegularExpressions
+
+let args = fsi.CommandLineArgs.[1..]
+
+let fileName = args.[0]
+
+let data = File.ReadAllText(fileName)
+
+let n =
+    (data, "[A-Z]\w*")
+    |> Regex.Matches
+    |> Seq.length
+
+printfn $"# of capitalized words: {n}"
+```
