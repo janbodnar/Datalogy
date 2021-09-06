@@ -87,6 +87,32 @@ with open(filename, 'r') as f:
     print(f'# of three-letter words: {n}')
 ```
 
+## Count vowels & consonants 
+
+```
+#!/usr/bin/python
+
+import sys
+import re
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as f:
+    
+    data = f.read()
+
+    found = re.findall(r"[aeiou]", data, re.IGNORECASE)
+    n = len(found)
+    
+    print(f'# of vowels: {n}')
+
+    found = re.findall(r"[bcdfghjklmnpqrstvwxyz]", data, re.IGNORECASE)
+    n = len(found)
+    
+    print(f'# of consonants: {n}')
+```
+
+
 ## Count punctuation marks
 
 ```
