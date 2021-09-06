@@ -127,6 +127,31 @@ with open(filename, 'r') as f:
     print(f'# of capitalized words: {n}')
 ```
 
+## Count words starting in o/b (ci)
+
+```
+#!/usr/bin/python
+
+import sys
+import re
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as f:
+    
+    data = f.read()
+
+    found = re.findall(r"\b[ob]\w*\b", data)
+    n = len(found)
+
+    print(f'# of words starting in o/b: {n}')
+
+    found = re.findall(r"\b[ob]\w*\b", data, re.I)
+    n = len(found)
+
+    print(f'# of words starting in o/b or O/B: {n}')
+```
+
 ## Count words ending in e
 
 ```
