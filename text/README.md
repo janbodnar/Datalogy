@@ -15,4 +15,4 @@
 - \# of words that end with 'e'
 
 
-Solutions in Linux commands, AWK, Python, and Perl  
+Solutions in Linux commands, AWK, Python, F#, and Perl  
