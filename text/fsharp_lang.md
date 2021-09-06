@@ -13,7 +13,7 @@ let fileName = args.[0]
 
 let data = File.ReadAllText(fileName)
 
-let cleaned = Regex.Replace(data, "\p{P}*", "")
+let cleaned = Regex.Replace(data, "\p{P}*", "") // \p{P} - punctuation character class  
 
 let words =
     (cleaned, "\s+")
