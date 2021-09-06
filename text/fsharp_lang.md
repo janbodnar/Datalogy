@@ -145,3 +145,29 @@ let n =
 
 printfn $"# of capitalized words: {n}"
 ```
+## Count words starting in o/b (ci)
+
+```
+open System.IO
+open System.Text.RegularExpressions
+
+let args = fsi.CommandLineArgs.[1..]
+
+let fileName = args.[0]
+
+let data = File.ReadAllText(fileName)
+
+let n1 =
+    (data, @"\b[ob]\w+\b")
+    |> Regex.Matches
+    |> Seq.length
+
+printfn $"# of words starting in o/b: {n1}"
+
+let n2 =
+    (data, @"(?i)\b[ob]\w+\b")
+    |> Regex.Matches
+    |> Seq.length
+
+printfn $"# of words starting in o/b or O/B: {n2}"
+```
