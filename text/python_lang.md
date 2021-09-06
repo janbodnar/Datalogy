@@ -1,0 +1,28 @@
+# Python
+
+
+## Words and unique words
+
+```
+#!/usr/bin/python
+
+import sys
+import re
+from collections import Counter
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as f:
+    
+    data = f.read()
+    cleaned = re.sub("[,.?!]", '', data) # remove punctuation marks
+    
+    data2 = re.split("\s+", cleaned)
+    words = [e for e in data2 if e] # remove empty elements
+    
+    n1 = len(words)
+    n2 = len(Counter(words))
+
+    print(f'{n1} words')
+    print(f'{n2} unique words')
+```
