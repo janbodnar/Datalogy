@@ -10,5 +10,5 @@
 `$ cat thermopylae.txt | tr -dc '[:punct:]' | wc -c` - # of punctuation marks  
 `$ cat thermopylae.txt | tr -s [:space:] '\n' | grep -wc -e '[A-Z].*'` - # of capitalized words  
 `$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wc -e '[ob].*'` - # starting with o or b  
-`$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wic -e '[ob].*'` - # starting with o or b, case insen  
+`$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wic -e '[ob].*'` - # starting with o or b, ci  
 `$ cat thermopylae.txt | tr -s [:space:] '\n' |  grep -wc -e '.*e'` - # of words ending in 'e'  
