@@ -45,3 +45,24 @@ with open(filename, 'r') as f:
 
     print(f'# of lines: {n}')
 ````
+
+# Count word occurrences
+
+```
+#!/usr/bin/python
+
+import sys
+import re
+
+filename = sys.argv[1]
+word = sys.argv[2]
+
+with open(filename, 'r') as f:
+    
+    data = f.read()
+
+    found = re.findall(fr"\b{word}\b", data, re.IGNORECASE)
+    n = len(found)
+    
+    print(f'# of occurences of word {word}: {n}')
+```
