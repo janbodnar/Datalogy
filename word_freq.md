@@ -261,6 +261,130 @@ topTen
 |> Seq.iter (fun (e, n) -> Console.WriteLine($"{e}: {n}"))
 ```
 
+# Go 
+
+## Example I
+
+```
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "sort"
+    "strings"
+)
+
+func main() {
+
+    fileName := "the-king-james-bible.txt"
+
+    bs, err := ioutil.ReadFile(fileName)
+
+    if err != nil {
+
+        log.Fatal(err)
+    }
+
+    text := string(bs)
+
+    fields := strings.FieldsFunc(text, func(r rune) bool {
+
+        return !('a' <= r && r <= 'z' || 'A' <= r && r <= 'Z' || r == '\'')
+    })
+
+    wordsCount := make(map[string]int)
+
+    for _, field := range fields {
+
+        wordsCount[field]++
+    }
+
+    keys := make([]string, 0, len(wordsCount))
+
+    for key := range wordsCount {
+
+        keys = append(keys, key)
+    }
+
+    sort.Slice(keys, func(i, j int) bool {
+
+        return wordsCount[keys[i]] > wordsCount[keys[j]]
+    })
+
+    for idx, key := range keys {
+
+        fmt.Printf("%s %d\n", key, wordsCount[key])
+
+        if idx == 10 {
+            break
+        }
+    }
+}
+```
+
+## Example II
+
+```
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "regexp"
+    "sort"
+)
+
+type WordFreq struct {
+    word string
+    freq int
+}
+
+func (p WordFreq) String() string {
+    return fmt.Sprintf("%s %d", p.word, p.freq)
+}
+
+func main() {
+
+    fileName := "the-king-james-bible.txt"
+
+    reg := regexp.MustCompile("[a-zA-Z']+")
+    bs, err := ioutil.ReadFile(fileName)
+
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    text := string(bs)
+    matches := reg.FindAllString(text, -1)
+
+    words := make(map[string]int)
+
+    for _, match := range matches {
+        words[match]++
+    }
+
+    var wordFreqs []WordFreq
+    for k, v := range words {
+        wordFreqs = append(wordFreqs, WordFreq{k, v})
+    }
+
+    sort.Slice(wordFreqs, func(i, j int) bool {
+
+        return wordFreqs[i].freq > wordFreqs[j].freq
+    })
+
+    for i := 0; i < 10; i++ {
+
+        fmt.Println(wordFreqs[i])
+    }
+}
+```
+
+
+
 ## Raku
 
 ```
