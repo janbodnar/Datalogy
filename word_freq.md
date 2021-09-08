@@ -195,6 +195,41 @@ foreach (var elem in freq.OrderByDescending(a => a.Value).Take(90))
 }
 ```
 
+# example II
+
+```
+using System;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+var fileName = "the-king-james-bible.txt";
+var text = File.ReadAllText(fileName);
+
+var dig = new Regex(@"\d");
+var matches = new Regex("[a-z-A-Z']+").Matches(text);
+
+var words = 
+    (from match in matches
+        let val = match.Value
+        where !dig.IsMatch(val)
+    select match.Value).ToList();
+
+var topTen =
+    (from word in words
+        group word by word into wg
+        orderby wg.Count() descending
+        select new {word = wg.Key, Total = wg.Count()}
+    ).Take(10);
+
+
+foreach (var e in topTen)
+{
+    Console.WriteLine($"{e.word}: {e.Total}");
+}
+```
+
+
 ## Raku
 
 ```
