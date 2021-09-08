@@ -33,6 +33,8 @@ END {
 
 ## Python
 
+### Example I
+
 ```
 #!/usr/bin/python
 
@@ -66,6 +68,8 @@ top_ten = c.most_common(10)
 for e, i in top_ten:
     print(f'{e}: {i}')
 ``` 
+
+### Example II
  
 ```
 #!/usr/bin/python
@@ -149,6 +153,8 @@ foreach my $word (@sorted_data) {
 
 ## C#
 
+### Example I
+
 ```
 using System;
 using System.Collections.Generic;
@@ -158,7 +164,6 @@ using System.Text.RegularExpressions;
 
 var fileName = "the-king-james-bible.txt";
 var text = File.ReadAllText(fileName);
-
 
 var match = Regex.Match(text, @"\w+");
 var freq = new Dictionary<string, int>();
@@ -195,7 +200,7 @@ foreach (var elem in freq.OrderByDescending(a => a.Value).Take(90))
 }
 ```
 
-# example II
+### Example II
 
 ```
 using System;
