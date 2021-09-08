@@ -3,32 +3,32 @@
 ## AWK 
 
 ```
-    {  
+{  
 
-        if (NR == 1) { 
-            sub(/^\xef\xbb\xbf/,"")
-        }
-
-        gsub(/[,;!()*:?.]*/, "")
-    
-        for (i = 1; i <= NF; i++) {
-    
-            if ($i ~ /^[0-9]/) { 
-                continue
-            }
-    
-            w = $i
-            words[w]++
-        }
-    } 
-    
-    END {
-    
-        for (idx in words) {
-    
-            print idx, words[idx]
-        }
+    if (NR == 1) { 
+        sub(/^\xef\xbb\xbf/,"")
     }
+
+    gsub(/[,;!()*:?.]*/, "")
+
+    for (i = 1; i <= NF; i++) {
+
+        if ($i ~ /^[0-9]/) { 
+            continue
+        }
+
+        w = $i
+        words[w]++
+    }
+} 
+
+END {
+
+    for (idx in words) {
+
+        print idx, words[idx]
+    }
+}
 ```
 
 ## Python
@@ -66,6 +66,56 @@ top_ten = c.most_common(10)
 for e, i in top_ten:
     print(f'{e}: {i}')
 ``` 
+ 
+```
+#!/usr/bin/python
+
+from itertools import (groupby, starmap)
+from operator import itemgetter
+from pathlib import Path
+import re
+
+def most_frequent_words(filepath, *, encoding='utf-8'):
+    """
+    A list of word-frequency pairs sorted by their occurrences.
+    The words are read from the given file.
+    """
+    def word_and_frequency(word, words_group):
+        return word, capacity(words_group)
+ 
+    file_contents = filepath.read_text(encoding=encoding)
+    # words = file_contents.lower().split()
+    words = re.split(r"\W+", file_contents)
+    grouped_words = groupby(sorted(words))
+    
+    # print(type(grouped_words))
+
+    # for word in grouped_words:
+    #     print(list(word))
+
+    for key, group in grouped_words:
+        key_and_group = {key : list(group)}
+        print(key_and_group)
+
+    words_and_frequencies = starmap(word_and_frequency, grouped_words)
+
+    return sorted(words_and_frequencies, key=itemgetter(1), reverse=True)
+ 
+ 
+def capacity(iterable):
+    """Returns a number of elements in an iterable"""
+    return sum(1 for _ in iterable)
+ 
+filename = Path('the-king-james-bible.txt')
+n = 70
+
+words_and_counts = most_frequent_words(filename)
+
+for w, i in words_and_counts[:n]:
+    print(f'{w} {i}')
+
+# print(*words_and_counts[:n], sep='\n')
+```
  
 ## Perl
 
@@ -143,4 +193,55 @@ foreach (var elem in freq.OrderByDescending(a => a.Value).Take(90))
 {
     Console.WriteLine("{0,2}    {1,-5}   {2,8}", rank++, elem.Key, elem.Value);
 }
+```
+
+## Raku
+
+```
+#!/usr/bin/raku
+
+#say "the-king-james-bible.txt".IO.slurp.words.raku;
+
+my $text = "the-king-james-bible.txt".IO.slurp;
+my %seen;
+
+#say $text;
+
+%seen{$_}++ for $text.comb(/<[a..zA..Z']>+/);
+
+#for %seen {
+#    .say;
+#}
+
+for %seen.sort(-*.value)[^10] {
+
+    .say;
+}
+
+exit 0;
+
+for %seen.sort(-*.value) {
+  
+    say $_;
+}
+
+#say %sorted.head(10);
+
+exit 0;
+
+my $i;
+for %seen.sort({-.value}) {
+    #say "{$_.key} {$_.value}";
+    say $_;
+
+    $i++;
+    last if $i == 10;
+}
+
+#my %sorted = sort {%seen{$^a} <=> %seen{$^b}}, %seen.keys;
+
+#for %sorted -> $e {
+
+ #   say "$e => {%sorted{$e}}" 
+#}
 ```
