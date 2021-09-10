@@ -11,9 +11,8 @@ using System.Text.RegularExpressions;
 var fileName = args[0];
 var data = File.ReadAllText(fileName);
 
-var cleaned = Regex.Replace(data, @"\p{P}*", ""); // \p{P} - punctuation character class  
+var cleaned = Regex.Replace(data, @"\p{P}*", ""); 
 var words = Regex.Split(cleaned, @"\s+");
-
 
 var res = from word in words 
     where !String.IsNullOrWhiteSpace(word)
@@ -26,6 +25,6 @@ Console.WriteLine($"# of words: {n1}");
 Console.WriteLine($"# of unique words: {n2}");
 ```
 
-
+\p{P} - punctuation character class    
 
 
