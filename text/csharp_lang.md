@@ -2,7 +2,7 @@
 
 ## Count words & unique words
 
-```
+```c#
 using System;
 using System.Linq;
 using System.IO;
@@ -30,7 +30,7 @@ Console.WriteLine($"# of unique words: {n2}");
 
 ## Count lines 
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.IO;
