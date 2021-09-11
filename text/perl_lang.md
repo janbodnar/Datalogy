@@ -1,7 +1,7 @@
 
 # Perl
 
-```
+```perl
 #!/usr/bin/perl 
 
 use v5.30;
@@ -31,7 +31,7 @@ say "There are $n words and $n_lines lines";
 
 Counts words and lines
 
-```
+```perl
 #!/usr/bin/perl 
 
 use v5.30;
@@ -58,7 +58,7 @@ say "There are $n unique words";
 
 Counts unique words, case insensitively
 
-```
+```perl
 #!/usr/bin/perl 
 
 use v5.30;
@@ -83,7 +83,7 @@ say "$n3 consonants";
 
 Counts punctuation marks, vowels and consonants
 
-```
+```perl
 #!/usr/bin/perl 
 
 use v5.30;
@@ -118,7 +118,7 @@ say "@{[scalar @matches]} three-letter words";
 
 Count three-letter words  
 
-```
+```perl
 #!/usr/bin/perl 
 
 use v5.30;
