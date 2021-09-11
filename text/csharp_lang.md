@@ -101,19 +101,32 @@ using System.Text.RegularExpressions;
 var fileName = args[0];
 var data = File.ReadAllText(fileName);
 
-var cleaned = Regex.Replace(data, @"\p{P}*", ""); // \p{P} - punctuation character class  
-var words = Regex.Split(cleaned, @"\s+");
+var rx1 = new Regex(@"(?i)[aeiou]", RegexOptions.Compiled);
 
-var res = from word in words 
-    where !String.IsNullOrWhiteSpace(word)
-    select word;
+var n1 = rx1.Matches(data).Count();
+Console.WriteLine($"# of vowels: {n1}");
 
-var n1 = res.Count();
-var n2 = res.Distinct().Count();
 
-Console.WriteLine($"# of words: {n1}");
-Console.WriteLine($"# of unique words: {n2}");
+var rx2 = new Regex(@"(?i)[bcdfghjklmnpqrstvwxyz]", RegexOptions.Compiled);
+
+var n2 = rx2.Matches(data).Count();
+Console.WriteLine($"# of consonants: {n2}");
 ```
 
+## Count punctuation marks 
 
+```C#
+using System;
+using System.Linq;
+using System.IO;
+using System.Text.RegularExpressions;
+
+var fileName = args[0];
+var data = File.ReadAllText(fileName);
+
+var rx = new Regex(@"\p{P}", RegexOptions.Compiled);
+
+var n = rx.Matches(data).Count();
+Console.WriteLine($"# of punctunation marks: {n}");
+```
 
