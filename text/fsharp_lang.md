@@ -65,7 +65,7 @@ printfn $"# of word {word} {n}"
 
 ## Count three-letter words
 
-```
+```F#
 open System.IO
 open System.Text.RegularExpressions
 
