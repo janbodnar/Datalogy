@@ -1,4 +1,4 @@
-# Work with online HTML table
+# Online HTML table
 
 The url is `https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019`  
 There is only one HTML table on the page; we can grap it via the `table` tag or by the Id.  
