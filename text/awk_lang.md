@@ -24,7 +24,7 @@ Counts lines and words; it counts non-blank lines
 
 ## Count word occurrences  
 
-```
+```awk
 {
     for (i=1; i<=NF; i++) {
 
@@ -49,7 +49,7 @@ Count # of
 
 ## Count three-letter words
 
-```
+```awk
 {
     for (i=1; i<=NF; i++) {
 
@@ -69,7 +69,7 @@ Counts the # of three-letter words; \y is for word boundary
 
 ## Couns vowels and consonants  
 
-```
+```awk
 BEGIN { 
     IGNORECASE=1 
 }
@@ -95,7 +95,7 @@ alternatively, `IGNORECASE` can be set with `awk -v IGNORECASE=1`
 
 ## Count capitalized, starting & ending
 
-```
+```awk
 BEGIN {
     # IGNORECASE=1
     cap = 0
