@@ -2,7 +2,7 @@
 
 ## Count lines and words
 
-```
+```awk
 {
     words += NF
 
