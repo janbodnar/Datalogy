@@ -170,3 +170,21 @@ var n2 = rx2.Matches(data).Count();
 
 Console.WriteLine($"# of words starting in o/b or O/B: {n2}");
 ```
+
+## Count words ending in e
+
+```c#
+using System;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+var fileName = args[0];
+
+var data = File.ReadAllText(fileName);
+
+var rx1 = new Regex(@"\b\w+e\b", RegexOptions.Compiled);
+var n = rx1.Matches(data).Count();
+
+Console.WriteLine($"# of words ending in e: {n}");
+```
