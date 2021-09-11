@@ -2,7 +2,7 @@
 
 ## Count words & unique words
 
-```
+```F#
 open System
 open System.IO
 open System.Text.RegularExpressions
@@ -29,7 +29,7 @@ printfn "# of unique words: %A" n2
 
 ## Count lines
 
-```
+```F#
 open System
 open System.IO
 
@@ -48,7 +48,7 @@ printfn "# of lines: %d" n
 
 ## Count word occurrence 
 
-```
+```F#
 open System.IO
 open System.Text.RegularExpressions
 
@@ -81,7 +81,7 @@ printfn $"# of three-letter words {n}"
 
 ## Count vowels & consonants  
 
-```
+```F#
 open System.IO
 open System.Text.RegularExpressions
 
@@ -108,7 +108,7 @@ printfn $"# of consonants: {n2}"
 
 ## Count punctuation marks  
 
-```
+```F#
 open System.IO
 open System.Text.RegularExpressions
 
@@ -128,7 +128,7 @@ printfn $"# of punctuation marks: {n}"
 
 ## Count capitalized words
 
-```
+```F#
 open System.IO
 open System.Text.RegularExpressions
 
@@ -147,7 +147,7 @@ printfn $"# of capitalized words: {n}"
 ```
 ## Count words starting in o/b (ci)
 
-```
+```F#
 open System.IO
 open System.Text.RegularExpressions
 
