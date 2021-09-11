@@ -3,7 +3,7 @@
 
 ## Words and unique words
 
-```
+```python
 #!/usr/bin/python
 
 import sys
@@ -29,7 +29,7 @@ with open(filename, 'r') as f:
 
 ## Count lines
 
-```
+```python
 #!/usr/bin/python
 
 import sys
@@ -48,7 +48,7 @@ with open(filename, 'r') as f:
 
 ## Count word occurrences
 
-```
+```python
 #!/usr/bin/python
 
 import sys
@@ -69,7 +69,7 @@ with open(filename, 'r') as f:
 
 ## Count three-letter words
 
-```
+```python
 #!/usr/bin/python
 
 import sys
@@ -89,7 +89,7 @@ with open(filename, 'r') as f:
 
 ## Count vowels & consonants 
 
-```
+```python
 #!/usr/bin/python
 
 import sys
@@ -115,7 +115,7 @@ with open(filename, 'r') as f:
 
 ## Count punctuation marks
 
-```
+```python
 #!/usr/bin/python
 
 import sys
@@ -135,7 +135,7 @@ with open(filename, 'r') as f:
 
 ## Count capitalized words
 
-```
+```python
 #!/usr/bin/python
 
 import sys
@@ -155,7 +155,7 @@ with open(filename, 'r') as f:
 
 ## Count words starting in o/b (ci)
 
-```
+```python
 #!/usr/bin/python
 
 import sys
@@ -180,7 +180,7 @@ with open(filename, 'r') as f:
 
 ## Count words ending in e
 
-```
+```python
 #!/usr/bin/python
 
 import sys
