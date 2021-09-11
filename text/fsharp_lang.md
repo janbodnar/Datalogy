@@ -171,3 +171,24 @@ let n2 =
 
 printfn $"# of words starting in o/b or O/B: {n2}"
 ```
+
+## Count words ending in e
+
+```F#
+open System.IO
+open System.Text.RegularExpressions
+
+let args = fsi.CommandLineArgs.[1..]
+
+let fileName = args.[0]
+
+let data = File.ReadAllText(fileName)
+
+let n =
+    (data, @"\b\w+e\b")
+    |> Regex.Matches
+    |> Seq.length
+
+printfn $"# of words ending in e: {n}"
+```
+
