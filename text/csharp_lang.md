@@ -2,7 +2,7 @@
 
 ## Count words & unique words
 
-```c#
+```C#
 using System;
 using System.Linq;
 using System.IO;
@@ -30,7 +30,7 @@ Console.WriteLine($"# of unique words: {n2}");
 
 ## Count lines 
 
-```csharp
+```C#
 using System;
 using System.Linq;
 using System.IO;
@@ -49,7 +49,7 @@ Console.WriteLine($"# of lines: {n}");
 
 ## Count word occurrence 
 
-```
+```C#
 using System;
 using System.Linq;
 using System.IO;
@@ -68,7 +68,7 @@ Console.WriteLine($"# of word {word}: {matches.Count}");
 
 ## Count three-letter words 
 
-```
+```C#
 using System;
 using System.Linq;
 using System.IO;
