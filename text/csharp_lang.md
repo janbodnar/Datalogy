@@ -130,3 +130,43 @@ var n = rx.Matches(data).Count();
 Console.WriteLine($"# of punctunation marks: {n}");
 ```
 
+## Count capitalized words
+
+```C#
+using System;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+var fileName = args[0];
+
+var data = File.ReadAllText(fileName);
+
+var rx = new Regex(@"[A-Z]\w*", RegexOptions.Compiled);
+var n = rx.Matches(data).Count();
+
+Console.WriteLine($"# of capitalized words: {n}");
+```
+
+## Count words starting in o/b (ci)
+
+```C#
+using System;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+var fileName = args[0];
+
+var data = File.ReadAllText(fileName);
+
+var rx1 = new Regex(@"\b[ob]\w+\b", RegexOptions.Compiled);
+var n1 = rx1.Matches(data).Count();
+
+Console.WriteLine($"# of words starting in o/b: {n1}");
+
+var rx2 = new Regex(@"(?i)\b[ob]\w+\b", RegexOptions.Compiled);
+var n2 = rx2.Matches(data).Count();
+
+Console.WriteLine($"# of words starting in o/b or O/B: {n2}");
+```
