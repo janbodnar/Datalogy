@@ -28,3 +28,65 @@ Console.WriteLine($"# of unique words: {n2}");
 \p{P} - punctuation character class    
 
 
+## Count lines 
+
+```
+using System;
+using System.Linq;
+using System.IO;
+using System.Text.RegularExpressions;
+
+var fileName = args[0];
+var lines = File.ReadAllLines(fileName);
+
+var n = (from line in lines
+    where !String.IsNullOrWhiteSpace(line)
+    select line).Count();
+
+Console.WriteLine($"# of lines: {n}");
+```
+
+
+## Count word occurrence 
+
+```
+using System;
+using System.Linq;
+using System.IO;
+using System.Text.RegularExpressions;
+
+var fileName = args[0];
+var word = args[1];
+
+var data = File.ReadAllText(fileName);
+var rx = new Regex(@$"\b{word}\b", RegexOptions.Compiled);
+
+var matches = rx.Matches(data);
+
+Console.WriteLine($"# of word {word}: {matches.Count}");
+```
+
+## Count three-letter words 
+
+```
+using System;
+using System.Linq;
+using System.IO;
+using System.Text.RegularExpressions;
+
+var fileName = args[0];
+var word = args[1];
+
+var data = File.ReadAllText(fileName);
+var rx = new Regex(@"\b\w{3}\b", RegexOptions.Compiled);
+
+var matches = rx.Matches(data);
+
+foreach (Match match in matches)
+{
+    Console.WriteLine(match);
+}
+
+Console.WriteLine($"# of three-letter words: {matches.Count}");
+```
+
