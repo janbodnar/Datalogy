@@ -1,6 +1,6 @@
 # Linux commands
 
-`$ wc -w thermopylae.txt` - # of words  
+`shell $ wc -w thermopylae.txt` - # of words  
 `$ wc -l thermopylae.txt` - # of lines  
 `$ tr ' ' '\n' < thermopylae.txt | grep of | wc -l` - # of  
 `$ cat thermopylae.txt | tr -d [:punct:] | tr -s [:space:] '\n' | grep -wc -e '...'` - # of three-letter words  
