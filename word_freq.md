@@ -2,7 +2,7 @@
 
 ## AWK 
 
-```
+```awk
 {  
 
     if (NR == 1) { 
@@ -35,7 +35,7 @@ END {
 
 ### Example I
 
-```
+```python
 #!/usr/bin/python
 
 import collections
@@ -71,7 +71,7 @@ for e, i in top_ten:
 
 ### Example II
  
-```
+```python
 #!/usr/bin/python
 
 from itertools import (groupby, starmap)
@@ -123,7 +123,7 @@ for w, i in words_and_counts[:n]:
  
 ## Perl
 
-```
+```perl
 #!/usr/bin/perl
 
 use v5.30;
@@ -155,7 +155,7 @@ foreach my $word (@sorted_data) {
 
 ### Example I
 
-```
+```C#
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -202,8 +202,7 @@ foreach (var elem in freq.OrderByDescending(a => a.Value).Take(90))
 
 ### Example II
 
-```
-using System;
+```C#
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -236,7 +235,7 @@ foreach (var e in topTen)
 
 ## F# 
 
-```
+```F#
 open System
 open System.IO
 open System.Text.RegularExpressions
@@ -265,7 +264,7 @@ topTen
 
 ## Example I
 
-```
+```Go
 package main
 
 import (
@@ -326,7 +325,7 @@ func main() {
 
 ## Example II
 
-```
+```Go
 package main
 
 import (
@@ -387,7 +386,7 @@ func main() {
 
 ## Raku
 
-```
+```raku
 #!/usr/bin/raku
 
 #say "the-king-james-bible.txt".IO.slurp.words.raku;
