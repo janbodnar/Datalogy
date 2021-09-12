@@ -65,6 +65,31 @@ for (<>) {
 $ ./clean_data.pl uncleant.txt
 ```
 
+- C# solution
+
+```C#
+using System;
+using System.Linq;
+using System.IO;
+using System.Text.RegularExpressions;
+
+var data = File.ReadAllText(args[0]);
+
+var cleaned = Regex.Replace(data, "[\",]", "");
+var words = Regex.Split(cleaned, @"\s+");
+
+var result = from word in words
+             where !string.IsNullOrWhiteSpace(word)
+             select word;
+
+
+foreach (var e in result)
+{
+    Console.WriteLine(e);
+}
+```
+
+
 - F# solution  
 
 ```F#
