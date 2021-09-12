@@ -22,6 +22,28 @@ $ tr -d '",' < unclean.txt | tr -s '[:space:]' '\n'
 ```  
 -d option deletes a set of characters; the -s (for squeeze) replaces multiple occurrences    
 
+- Python solution
+
+```python
+#!/usr/bin/python
+
+import sys
+import re
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as f:
+
+    data = f.read()
+    cleaned = re.sub(r'[,"]', '', data) # remove punctuation marks
+
+    data2 = re.split("\s+", cleaned)
+    words = [e for e in data2 if e] # remove empty elements
+
+    for word in words:
+        print(word)
+```
+
 - Perl solution 
 
 ```perl
