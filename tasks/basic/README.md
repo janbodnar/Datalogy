@@ -90,6 +90,12 @@ data = list(zip(lines[0], lines[1]))
 
 for e in data:
     print(' '.join(e))
+    
+# data = [map(str.rstrip, f.readlines()) for f in (p1, p2)]
+# data2 = list(zip(data[0], data[1]))
+
+# for e1, e2 in data2:
+#    print(f'{e1} {e2}')    
 ```
 
 Example III
@@ -109,14 +115,7 @@ data = list(zip(lines1, lines2))
 cleaned = [f'{e1.rstrip()} {e2.rstrip()}' for e1, e2 in data]
 
 for e in cleaned:
-    print(e)
-    
-# data = [map(str.rstrip, f.readlines()) for f in (p1, p2)]
-# data2 = list(zip(data[0], data[1]))
-
-# for e1, e2 in data2:
-#    print(f'{e1} {e2}')
-    
+    print(e)    
 ```
 
 - Perl solution
