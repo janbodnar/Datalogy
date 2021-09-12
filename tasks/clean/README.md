@@ -103,6 +103,11 @@ func main() {
 }
 ```
 
+```console
+go run clean_data.go 
+```
+
+
 - C# solution
 
 ```C#
