@@ -104,7 +104,7 @@ func main() {
 ```
 
 ```console
-go run clean_data.go 
+$ go run clean_data.go 
 ```
 
 
