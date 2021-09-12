@@ -9,5 +9,6 @@ The table is located in a div with Id `stores-list--section-16266`.
 - parse HTML table from a web page
 - calculate sum, mean from the values
 - list top ten and bottom ten companies
+- show data into console table
 - transform into CSV file
 - transform into xlsx file
