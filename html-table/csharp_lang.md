@@ -119,6 +119,52 @@ Console.WriteLine($"The sum is: {sum}");
 Console.WriteLine($"The average is: {avg}");
 ```
 
+## Top ten & bottom ten rows
+
+```C#
+using System;
+using System.Linq;
+using AngleSharp;
+
+var config = Configuration.Default.WithDefaultLoader();
+using var context = BrowsingContext.New(config);
+
+var url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019";
+
+using var doc = await context.OpenAsync(url);
+
+var htable = doc.GetElementById("stores-list--section-16266");
+var trs = htable.QuerySelectorAll("tr");
+
+
+Console.WriteLine("Top ten:");
+
+foreach (var tr in trs.Skip(1).Take(10))
+{
+    var data = tr.QuerySelectorAll("td").Take(4);
+
+    var res = (from e in data
+               select e.TextContent).ToArray();
+
+    Console.WriteLine(string.Join(" ", res));
+}
+
+Console.WriteLine("--------------------------------------");
+
+
+Console.WriteLine("Bottom ten:");
+
+foreach (var tr in trs.TakeLast(10))
+{
+    var data = tr.QuerySelectorAll("td,th").Take(4);
+
+    var res = (from e in data
+               select e.TextContent).ToArray();
+
+    Console.WriteLine(string.Join(" ", res));
+}
+```
+
 ## Show data in console table 
 
 ```C#
