@@ -6,6 +6,7 @@ Data analysis and processing
 - basic i/o
 - load html table
 - SQL
+- CSV
 - regular expressions
 - parsers
 - multiple requests
