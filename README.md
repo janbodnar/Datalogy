@@ -3,6 +3,7 @@ Data analysis and processing
 
 - datalogy basics
 - editors
+- programming basics
 - basic i/o
 - load html table
 - SQL
