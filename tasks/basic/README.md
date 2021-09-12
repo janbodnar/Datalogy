@@ -142,6 +142,54 @@ for my $e (@zipped) {
 }
 ```
 
+- Go solution 
+
+```Go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"strings"
+)
+
+func main() {
+
+	fname1 := "adjectives.txt"
+	fname2 := "words.txt"
+
+	bdata1, err := ioutil.ReadFile(fname1)
+
+	if err != nil {
+
+		log.Fatal(err)
+	}
+
+	bdata2, err := ioutil.ReadFile(fname2)
+
+	if err != nil {
+
+		log.Fatal(err)
+	}
+
+	data1 := string(bdata1)
+	data2 := string(bdata2)
+
+	lines1 := strings.Split(data1, "\n")
+	lines2 := strings.Split(data2, "\n")
+
+	for i := 0; i < len(lines1); i++ {
+
+		res := fmt.Sprintf("%s %s", lines1[i], lines2[i])
+
+		if len(strings.TrimSpace(res)) > 0 {
+			fmt.Println(res)
+		}
+	}
+}
+```
+
 - F# solutions
 
 ```F#
