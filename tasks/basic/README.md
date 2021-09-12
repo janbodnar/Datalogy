@@ -61,10 +61,10 @@ from pathlib import Path
 fname1 = sys.argv[1]
 fname2 = sys.argv[2]
 
-data1 = Path(fname1).read_text(encoding='utf-8').splitlines()
-data2 = Path(fname2).read_text(encoding='utf-8').splitlines()
+lines1 = Path(fname1).read_text(encoding='utf-8').splitlines()
+lines2 = Path(fname2).read_text(encoding='utf-8').splitlines()
 
-for e in zip(data1, data2):
+for e in zip(lines1, lines2):
     print(' '.join(e))
 ```
 
