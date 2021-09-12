@@ -190,6 +190,28 @@ func main() {
 }
 ```
 
+- C# solution 
+
+```C#
+using System;
+using System.Linq;
+using System.IO;
+
+var lines1 = File.ReadAllLines(args[0]);
+var lines2 = File.ReadAllLines(args[1]);
+
+var res = lines1.Zip(lines2, (x, y) => $"{x} {y}");
+
+foreach (var e in res)
+{
+    if (!string.IsNullOrWhiteSpace(e))
+    {
+        Console.WriteLine(e);
+    }
+}
+```
+
+
 - F# solutions
 
 ```F#
