@@ -15,7 +15,7 @@ END { print lines, words }
 
 ```
 
-```
+```console
 $ awk -f words_lines.awk thermopylae.txt 
 4 38
 ```
