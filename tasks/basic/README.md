@@ -4,8 +4,7 @@
 
 Count the number of words in `the-king-james-bible.txt`  
 
-```
-open System
+```F#
 open System.IO
 open System.Text.RegularExpressions;
 
@@ -22,7 +21,7 @@ into one file/output; join words from the same lines
 
 - Linux commands
 
-```
+```console
 $ paste adjectives.txt words.txt | column -t
 blue    sky
 brown   cup
@@ -36,12 +35,13 @@ The `column` utility formats its input into multiple columns
 
 - AWK 
 
-`$ awk '{printf ("%s ", $0); getline < "adjectives.txt"; print $0 }' words.txt`
-
+```console
+$ awk '{printf ("%s ", $0); getline < "adjectives.txt"; print $0 }' words.txt
+```
 
 - Raku solution 
 
-```
+```raku
 #!/usr/bin/raku
 
 .put for [Z] @*ARGS.map: *.IO.lines;
@@ -49,7 +49,7 @@ The `column` utility formats its input into multiple columns
 
 - Perl solution 
 
-```
+```perl
 #!/usr/bin/perl 
 
 use v5.30;
@@ -75,7 +75,7 @@ for my $e (@zipped) {
 
 - F# solutions
 
-```
+```F#
 open System.IO
 
 let args = fsi.CommandLineArgs.[1..] 
@@ -89,7 +89,7 @@ for (w1, w2) in zipped do
     printfn $"{w1} {w2}"
 ```
 
-```
+```console
 $ dotnet fsi combine_lines.fsx adjectives.txt words.txt
 blue sky
 brown cup
@@ -100,7 +100,7 @@ old tree
 
 Writes to standard output; could be redirected if necessary 
 
-```
+```F#
 open System.IO
 
 let args = fsi.CommandLineArgs.[1..] 
