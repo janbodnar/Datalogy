@@ -37,7 +37,7 @@ for (<>) {
 }
 ```
 
-`$ ./clean_data.pl uncleant.txt`console
+```console $ ./clean_data.pl uncleant.txt```
 
 - F# solution  
 
