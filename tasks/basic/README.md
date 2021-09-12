@@ -39,7 +39,7 @@ The `column` utility formats its input into multiple columns
 $ awk '{printf ("%s ", $0); getline < "adjectives.txt"; print $0 }' words.txt
 ```
 
-- Raku solution 
+- Raku solution
 
 ```raku
 #!/usr/bin/raku
@@ -47,7 +47,9 @@ $ awk '{printf ("%s ", $0); getline < "adjectives.txt"; print $0 }' words.txt
 .put for [Z] @*ARGS.map: *.IO.lines;
 ```
 
-- Python solution
+- Python solutions
+
+Example I
 
 ```python
 #!/usr/bin/python
@@ -68,8 +70,27 @@ for e in data:
     print(' '.join(e))
 ```
 
+Example II
 
-- Perl solution 
+```python
+#!/usr/bin/python
+
+import sys
+
+fname1 = sys.argv[1]
+fname2 = sys.argv[2]
+
+with open(fname1) as f: lines1 = list(f) 
+with open(fname2) as f: lines2 = list(f) 
+
+data = list(zip(lines1, lines2))
+cleaned = [f'{e1.rstrip()} {e2.rstrip()}' for e1, e2 in data]
+
+for e in cleaned:
+    print(e)
+```
+
+- Perl solution
 
 ```perl
 #!/usr/bin/perl 
