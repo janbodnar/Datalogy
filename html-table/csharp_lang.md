@@ -31,7 +31,7 @@ var content = await client.GetStringAsync(url);
 File.WriteAllText("index.html", content);
 ```
 
-## Load HTML table 
+## Parse HTML table from URL
 
 ```C#
 using AngleSharp;
@@ -48,6 +48,39 @@ var e = doc.GetElementById("stores-list--section-16266");
 var table = e.InnerHtml;
 
 File.WriteAllText("html_table.html", table);
+```
+
+## Parse HTML table from a file 
+
+```C#
+using System;
+using System.Linq;
+using System.IO;
+using AngleSharp;
+
+var html = File.ReadAllText("index.html");
+
+var config = Configuration.Default;
+using var context = BrowsingContext.New(config);
+using var doc = await context.OpenAsync(req => req.Content(html));
+
+var htable = doc.GetElementById("stores-list--section-16266");
+var trs = htable.QuerySelectorAll("tr");
+
+foreach (var tr in trs)
+{
+    var data = tr.QuerySelectorAll("td,th").Take(4);
+
+    var res = (from e in data
+               select e.TextContent).ToArray();
+
+    Console.WriteLine(string.Join(" ", res));
+
+    // foreach (var e in data)
+    // {
+    //     Console.WriteLine(string.Join(" ", e.TextContent));
+    // }
+}
 ```
 
 ## Calculate sum & average
