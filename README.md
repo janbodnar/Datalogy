@@ -5,6 +5,7 @@ Data analysis and processing
 - editors
 - basic i/o
 - load html table
+- SQL
 - regular expressions
 - parsers
 - multiple requests
