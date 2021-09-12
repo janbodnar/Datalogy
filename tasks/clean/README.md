@@ -22,7 +22,7 @@ use Ctrl + H to remove chars; use regex option
 
 - Perl solution 
 
-```
+```perl
 #!/usr/bin/perl 
 
 use v5.30;
@@ -36,11 +36,12 @@ for (<>) {
     print $_;
 }
 ```
-`$ ./clean_data.pl uncleant.txt`  
+
+`$ ./clean_data.pl uncleant.txt`console
 
 - F# solution  
 
-```
+```F#
 open System.IO
 open System
 open System.Text.RegularExpressions
