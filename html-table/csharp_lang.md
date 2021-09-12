@@ -50,6 +50,47 @@ var table = e.InnerHtml;
 File.WriteAllText("html_table.html", table);
 ```
 
+## Calculate sum & average
+
+```C#
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using AngleSharp;
+
+var config = Configuration.Default.WithDefaultLoader();
+using var context = BrowsingContext.New(config);
+
+var url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019";
+
+using var doc = await context.OpenAsync(url);
+
+var htable = doc.GetElementById("stores-list--section-16266");
+
+var ths = htable.QuerySelectorAll("th");
+var trs = htable.QuerySelectorAll("tr").Skip(1);
+
+var values = new List<decimal>();
+
+foreach (var tr in trs)
+{
+    var val = tr.QuerySelectorAll("td").Skip(2).Take(1).First().TextContent;
+    
+    decimal d = decimal.Parse(val, NumberStyles.Currency);
+    values.Add(d);
+}
+
+var avg = (from val in values
+    select val).Average();
+
+var sum = (from val in values
+    select val).Sum();
+
+Console.WriteLine($"The sum is: {sum}");
+Console.WriteLine($"The average is: {avg}");
+```
+
 ## Show data in console table 
 
 ```C#
