@@ -41,7 +41,7 @@ Counts lines and words; it counts non-blank lines
 END { print n }
 ```
 
-```
+```console
 $ awk -v word=of -f count_word.awk thermopylae.txt 
 6
 ```
@@ -82,10 +82,9 @@ BEGIN {
 END {
     printf "vowels: %d, consonants: %d\n", vows, cons
 }
-
 ```
 
-```
+```console
 $ awk -f vows_cons.awk thermopylae.txt 
 vowels: 72, consonants: 108
 ```
