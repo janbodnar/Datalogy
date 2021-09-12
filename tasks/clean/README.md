@@ -61,4 +61,6 @@ Regex.Split(replaced, "\s+")
             Console.WriteLine(e))
 ```
 
-`dotnet fsi clean_words.fsx unclean.txt`
+```console
+$ dotnet fsi clean_words.fsx unclean.txt
+```
