@@ -87,7 +87,7 @@ foreach (var tr in trs)
 Console.Write(table.ToString());
 ```
 
-```html
+```term
 $ dotnet run | head -15
 ------------------------------------------------------------------------   
   Rank | Company                           | 2018 retail sales (billions) 
