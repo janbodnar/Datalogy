@@ -17,7 +17,9 @@ use Ctrl + H to remove chars; use regex option
 
 - Linux tr command
 
-`tr -d '",' < unclean.txt | tr -s '[:space:]' '\n'`  
+```console 
+$ tr -d '",' < unclean.txt | tr -s '[:space:]' '\n'
+```  
 -d option deletes a set of characters; the -s (for squeeze) replaces multiple occurrences    
 
 - Perl solution 
