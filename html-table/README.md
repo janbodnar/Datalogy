@@ -7,3 +7,7 @@ The table is located in a div with Id `stores-list--section-16266`.
 - download page & print to console
 - download page & write to file
 - parse HTML table from a web page
+- calculate sum, mean from the values
+- list top ten and bottom ten companies
+- transform into CSV file
+- transform into xlsx file
