@@ -137,7 +137,7 @@ my @zipped = zip6 @lines1, @lines2;
 for my $e (@zipped) {
 
     my $joined = join " ", @{ $e };
-    say $joined;
+    say $joined if !($joined =~ /^\s*$/);
     # "$joined\n" >> io('combined2.txt');
 }
 ```
