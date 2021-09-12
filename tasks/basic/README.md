@@ -47,6 +47,28 @@ $ awk '{printf ("%s ", $0); getline < "adjectives.txt"; print $0 }' words.txt
 .put for [Z] @*ARGS.map: *.IO.lines;
 ```
 
+- Python solution
+
+```python
+#!/usr/bin/python
+
+import sys
+
+from pathlib import Path
+ 
+fname1 = sys.argv[1]
+fname2 = sys.argv[2]
+
+data1 = Path(fname1).read_text(encoding='utf-8').splitlines()
+data2 = Path(fname2).read_text(encoding='utf-8').splitlines()
+
+data = list(zip(data1, data2))
+
+for e in data:
+    print(' '.join(e))
+```
+
+
 - Perl solution 
 
 ```perl
