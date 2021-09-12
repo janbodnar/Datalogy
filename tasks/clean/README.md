@@ -65,6 +65,44 @@ for (<>) {
 $ ./clean_data.pl uncleant.txt
 ```
 
+- Go solution
+
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"regexp"
+)
+
+func main() {
+
+	fileName := "unclean.txt"
+
+	body, err := ioutil.ReadFile(fileName)
+
+	if err != nil {
+
+		log.Fatal(err)
+	}
+
+	content := string(body)
+
+	re1 := regexp.MustCompile("[,\"]")
+	cleaned := re1.ReplaceAllString(content, "")
+
+	re2 := regexp.MustCompile("\\s+")
+	words := re2.Split(cleaned, -1)
+
+	for _, word := range words {
+
+		fmt.Println(word)
+	}
+}
+```
+
 - C# solution
 
 ```C#
