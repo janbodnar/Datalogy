@@ -75,11 +75,6 @@ foreach (var tr in trs)
                select e.TextContent).ToArray();
 
     Console.WriteLine(string.Join(" ", res));
-
-    // foreach (var e in data)
-    // {
-    //     Console.WriteLine(string.Join(" ", e.TextContent));
-    // }
 }
 ```
 
