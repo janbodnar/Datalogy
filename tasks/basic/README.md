@@ -77,6 +77,28 @@ Example II
 
 import sys
 
+from pathlib import Path
+ 
+fname1 = sys.argv[1]
+fname2 = sys.argv[2]
+
+p1 = Path(fname1).open()
+p2 = Path(fname2).open()
+
+lines = [[line.rstrip() for line in f] for f in (p1, p2)]
+data = list(zip(lines[0], lines[1]))
+
+for e in data:
+    print(' '.join(e))
+```
+
+Example III
+
+```python
+#!/usr/bin/python
+
+import sys
+
 fname1 = sys.argv[1]
 fname2 = sys.argv[2]
 
