@@ -1,7 +1,10 @@
 # C#
 
-We use the standard C# HTTP Client to make a GET request and  
-AngleSharp to parse HTML data.  
+Usage: 
+
+- C# HTTP Client to make GET requests
+- AngleSharp to parse HTML data.  
+- BetterConsoles.Tables for console table output
 
 ## Download page & print to console 
 
