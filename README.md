@@ -13,3 +13,4 @@ Data analysis and processing
 - multiple requests
 - async processing
 - parrallel programming 
+- reporting
