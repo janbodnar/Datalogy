@@ -224,3 +224,53 @@ $ dotnet run
 --------------------------------------------------------------------------  
 ...   
 ```
+
+## Export into CSV file
+
+We are using the CsvHelper library  
+
+```C#
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using AngleSharp;
+using CsvHelper;
+
+var config = Configuration.Default.WithDefaultLoader();
+using var context = BrowsingContext.New(config);
+
+var url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019";
+using var doc = await context.OpenAsync(url);
+
+var htable = doc.GetElementById("stores-list--section-16266");
+var trs = htable.QuerySelectorAll("tr").Skip(1);
+
+var csvConfig = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.CurrentCulture)
+{
+    ShouldQuote = args => false
+};
+
+
+using var fs = new StreamWriter("data.csv");
+using var writer = new CsvWriter(fs, csvConfig);
+
+var rows = new List<Row>();
+
+foreach (var tr in trs)
+{
+    var tds = tr.QuerySelectorAll("td").Take(3);
+    var fields = (from e in tds select e.TextContent).ToArray();
+    var row = new Row(fields[0], fields[1], fields[2]);
+
+    rows.Add(row);
+}
+
+writer.WriteRecords(rows);
+
+record Row(string Rank, string Company, string Sales);
+```
+
+
+
+
