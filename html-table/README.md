@@ -11,5 +11,5 @@ The table is located in a div with Id `stores-list--section-16266`.
 - calculate sum, mean from the values
 - list top ten and bottom ten rows
 - show data into console table
-- transform into CSV file
-- transform into xlsx file
+- export into CSV file
+- export into xlsx file
