@@ -80,8 +80,9 @@ println "The average is ${avg}"
 
 ## Show data in console table 
 
-
 ## Export into CSV file
+
+## Export into Excel file
 
 
 
