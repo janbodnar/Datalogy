@@ -33,6 +33,16 @@ println table.child(0)
 
 ## Parse HTML table from a file 
 
+```groovy
+@Grab(group='org.jsoup', module='jsoup', version='1.10.1')
+import org.jsoup.Jsoup
+
+def doc = Jsoup.parse(new File('index.html'), 'utf-8')
+def table = doc.getElementById('stores-list--section-16266')
+
+println table.child(0)
+```
+
 ## Calculate sum & average
 
 ## Top ten & bottom ten rows
