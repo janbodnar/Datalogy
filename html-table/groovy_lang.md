@@ -65,8 +65,8 @@ def vals = []
 
 for (tr in trs) {
 	
-	def res = tr.getElementsByTag('td').toList().drop(2).take(1).first().text()
-	vals.add(ci.parse(res).toBigDecimal())	
+    def res = tr.getElementsByTag('td').toList().drop(2).take(1).first().text()
+    vals.add(ci.parse(res).toBigDecimal())	
 }
 
 def sum = vals.sum()
