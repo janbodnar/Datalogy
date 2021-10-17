@@ -78,6 +78,60 @@ println "The average is ${avg}"
 
 ## Top ten & bottom ten rows
 
+```groovy
+@Grab('org.jsoup:jsoup:1.10.1')
+
+import org.jsoup.Jsoup
+
+def url = 'https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019'
+
+def doc = Jsoup.connect(url).get()
+def e = doc.getElementById('stores-list--section-16266')
+
+def table = e.child(0)
+
+println "Top 10"
+
+def trs = table.getElementsByTag('tr').drop(1).take(10)
+
+def vals = []
+
+for (tr in trs) {
+    
+    def val = []
+    def res = tr.getElementsByTag('td').take(3).forEach {
+        val.add(it.text())
+    }
+    vals.add(val)
+}
+
+for (val in vals) {
+    println val
+}
+
+println '----------------------------------------------'
+
+println "Bottom 10"
+
+def trs2 = table.getElementsByTag('tr').drop(1).takeRight(10)
+
+def vals2 = []
+
+for (tr in trs2) {
+
+    def val = []
+    def res = tr.getElementsByTag('td').take(3).forEach {
+        val.add(it.text())
+    }
+    vals2.add(val)
+}
+
+for (val in vals2) {
+    println val
+}
+```
+
+
 ## Show data in console table 
 
 ```groovy
