@@ -80,6 +80,51 @@ println "The average is ${avg}"
 
 ## Show data in console table 
 
+```groovy
+@Grab('org.jsoup:jsoup:1.10.1')
+@Grab('de.vandermeer:asciitable:0.3.2')
+
+import org.jsoup.Jsoup
+import de.vandermeer.asciitable.AsciiTable
+
+def url = 'https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019'
+
+def doc = Jsoup.connect(url).get()
+def e = doc.getElementById('stores-list--section-16266')
+
+def table = e.child(0)
+
+def headers = []
+def ths = table.getElementsByTag('th').toList().take(3).forEach {
+    headers.add(it.text())
+}
+
+def trs = table.getElementsByTag('tr').drop(1)
+def vals = [] 
+
+for (tr in trs) {
+    def row = []
+    def res = tr.getElementsByTag('td').toList().take(3).forEach {
+        row.add(it.text())	
+    }
+    vals.add(row)
+}
+
+def ascTable = new AsciiTable()
+ascTable.addRule()
+
+ascTable.addRow(headers)
+ascTable.addRule()
+
+for (row in vals) {
+    ascTable.addRow(row)
+}
+
+ascTable.addRule()
+
+println ascTable.render()
+```
+
 ## Export into CSV file
 
 ## Export into Excel file
