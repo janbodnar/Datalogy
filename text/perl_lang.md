@@ -1,7 +1,7 @@
 
 # Perl
 
-# Count words and lines
+## Count words and lines
 
 ```perl
 #!/usr/bin/perl 
@@ -31,7 +31,7 @@ my $n_lines = @lines;
 say "There are $n words and $n_lines lines";
 ```
 
-# Count unique words, ci
+## Count unique words, ci
 
 ```perl
 #!/usr/bin/perl 
@@ -58,7 +58,7 @@ my $n = keys %res;
 say "There are $n unique words";
 ```
 
-# Count punctuation marks, vowels & consonants
+## Count punctuation marks, vowels & consonants
 
 ```perl
 #!/usr/bin/perl 
@@ -83,7 +83,7 @@ my $n3 = $contents =~ y/bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ//;
 say "$n3 consonants";
 ```
 
-# Count three-letter words  
+## Count three-letter words  
 
 ```perl
 #!/usr/bin/perl 
@@ -118,7 +118,7 @@ say "@{[scalar @matches]} three-letter words";
 # say "$n three-letter words"
 ```
 
-# Count capitalized words, words starting in o/b, o/b ci, and words ending in e
+## Count capitalized words, words starting in o/b, o/b ci, and words ending in e
 
 ```perl
 #!/usr/bin/perl 
