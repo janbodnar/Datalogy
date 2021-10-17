@@ -48,8 +48,8 @@ println e.child(0)
 ## Calculate sum & average
 
 ```groovy
-
 @Grab(group='org.jsoup', module='jsoup', version='1.10.1')
+
 import org.jsoup.Jsoup
 import java.text.NumberFormat
 
@@ -59,6 +59,7 @@ def doc = Jsoup.connect(url).get()
 def e = doc.getElementById('stores-list--section-16266')
 
 def table = e.child(0)
+
 def trs = table.getElementsByTag('tr').drop(1)
 
 def ci = NumberFormat.getCurrencyInstance()
@@ -67,7 +68,7 @@ def vals = []
 
 for (tr in trs) {
 	
-    def res = tr.getElementsByTag('td').toList().drop(2).take(1).first().text()
+    def res = tr.getElementsByTag('td').drop(2).take(1).first().text()
     vals.add(ci.parse(res).toBigDecimal())	
 }
 
