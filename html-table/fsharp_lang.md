@@ -9,13 +9,44 @@ Usage:
 ## Download page & print to console 
 
 ```f#
-using System;
-using System.Net.Http;
+open System.Net.Http
+open System
 
-using var client = new HttpClient();
+let doWork (url:string) = 
 
-var url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019";
-var content = await client.GetStringAsync(url);
+    task {
+        use client = new HttpClient()
+        let! content = client.GetStringAsync(url)
 
-Console.WriteLine(content);
+        return content
+    }
+
+let url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019"
+let content = doWork url
+Console.WriteLine(content.Result)
 ```
+
+## Download page & write to file
+
+```f#
+open System.IO
+open System.Net.Http
+
+let download2File (url:string) =
+
+    task {
+        use client = new HttpClient()
+        let! content = client.GetStringAsync(url)
+
+        return content
+    }
+
+let url =
+    "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019"
+let content = download2File url
+File.WriteAllText("index.html", content.Result)
+
+```
+
+
+
