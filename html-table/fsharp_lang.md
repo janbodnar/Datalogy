@@ -48,5 +48,31 @@ File.WriteAllText("index.html", content.Result)
 
 ```
 
+## Parse HTML table from URL
 
+```f#
+#r "nuget: AngleSharp" 
+
+open System.IO
+open AngleSharp
+
+let parse (url:string) = 
+
+    let config = Configuration.Default.WithDefaultLoader()
+    use context = BrowsingContext.New(config)
+
+    task {
+        use! doc = context.OpenAsync(url)
+
+        let e = doc.GetElementById("stores-list--section-16266")
+        let table = e.InnerHtml
+
+        return table
+    }
+
+
+let url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019"
+let table = parse url
+File.WriteAllText("html_table.html", table.Result)
+```
 
