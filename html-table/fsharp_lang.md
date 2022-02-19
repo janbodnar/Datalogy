@@ -48,6 +48,20 @@ File.WriteAllText("index.html", content.Result)
 
 ```
 
+---
+
+```F#
+#r "nuget: FSharp.Data"
+
+open FSharp.Data
+open System.IO
+
+let url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019"
+
+let content = Http.RequestString(url)
+File.WriteAllText ("index.html", content)
+```
+
 ## Parse HTML table from URL
 
 ```f#
