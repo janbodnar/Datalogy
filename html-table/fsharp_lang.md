@@ -2,8 +2,9 @@
 
 Usage: 
 
-- C# HTTP Client to make GET requests
-- AngleSharp to parse HTML data.  
+- HTTP Client to make GET requests
+- AngleSharp to parse HTML data
+- FSharp.Data to maker requests & parse data
 - BetterConsoles.Tables for console table output
 
 ## Download page & print to console 
