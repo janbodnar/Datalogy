@@ -109,8 +109,6 @@ File.WriteAllText("html_table.html", table.Result)
 ---
 
 ```F#
-#r "nuget: AngleSharp" 
-
 #r "nuget: FSharp.Data"
 
 open FSharp.Data
