@@ -126,4 +126,29 @@ let table = parse url
 File.WriteAllText("html_table.html", table.ToString())
 ```
 
+```F#
+#r "nuget: FSharp.Data"
 
+open FSharp.Data
+open System
+open System.Globalization
+
+let parse (url: string) =
+
+    let doc = HtmlDocument.Load(url)
+    let e = doc.CssSelect("td.data-cell-2")
+
+    e
+
+let url =
+    "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019"
+
+let tds = parse url
+
+let nums =
+    tds
+    |> List.map (fun e -> Decimal.Parse(e.InnerText(), NumberStyles.Currency))
+
+nums |> List.sum |> Console.WriteLine
+nums |> List.average |> Console.WriteLine
+```
