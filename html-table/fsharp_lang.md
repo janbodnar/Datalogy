@@ -106,3 +106,26 @@ let table = parse url
 File.WriteAllText("html_table.html", table.Result)
 ```
 
+---
+
+```F#
+#r "nuget: AngleSharp" 
+
+#r "nuget: FSharp.Data"
+
+open FSharp.Data
+open System.IO
+
+let parse (url:string) = 
+
+    let doc = HtmlDocument.Load(url)
+    let e = doc.CssSelect("div#stores-list--section-16266 > table").Head
+
+    e
+
+let url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019"
+let table = parse url
+File.WriteAllText("html_table.html", table.ToString())
+```
+
+
