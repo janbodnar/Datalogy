@@ -126,6 +126,8 @@ let table = parse url
 File.WriteAllText("html_table.html", table.ToString())
 ```
 
+## Calculate sum & average
+
 ```F#
 #r "nuget: FSharp.Data"
 
@@ -152,3 +154,13 @@ let nums =
 nums |> List.sum |> Console.WriteLine
 nums |> List.average |> Console.WriteLine
 ```
+
+
+
+## Top ten & bottom ten rows
+
+## Show data in console table 
+
+## Export into CSV file
+
+## Export into Excel file
