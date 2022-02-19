@@ -27,6 +27,21 @@ let content = doWork url
 Console.WriteLine(content.Result)
 ```
 
+---
+
+```F#
+#r "nuget: FSharp.Data"
+
+open FSharp.Data
+open System
+
+let url = "https://nrf.com/resources/top-retailers/top-100-retailers/top-100-retailers-2019"
+
+let content = Http.RequestString(url)
+Console.WriteLine content
+```
+
+
 ## Download page & write to file
 
 ```f#
